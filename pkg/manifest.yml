@@ -1,8 +1,8 @@
 version: v0.1.0
-node_version: v0.1.0
-name: eth-cl
+node_version: v2.0.0
+name: python-mock-server
 upgrade: recommended
 # TODO: add hardware requirements
 # TODO: add plugin
 profiles:
-  - name: sepolia
+  - name: option-returner
