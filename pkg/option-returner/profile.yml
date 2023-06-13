@@ -54,7 +54,7 @@ options:
     type: uri
     default: "https://www.google.com"
     validate:
-      uri_scheme: "https"
+      uri_scheme: ["https"]
     help: "Test option uri"
   - name: "test-option-enum"
     target: TEST_OPTION_ENUM
