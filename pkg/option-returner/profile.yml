@@ -45,7 +45,7 @@ options:
   - name: "test-option-path-file"
     target: TEST_OPTION_PATH_FILE
     type: path
-    default: "/tmp/test.txt" 
+    default: "/tmp/test.txt"
     validate:
       format: "txt"
     help: "Test option path file"
