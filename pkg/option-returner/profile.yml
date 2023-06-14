@@ -58,6 +58,8 @@ options:
     help: "Test option uri"
   - name: "test-option-enum"
     target: TEST_OPTION_ENUM
-    type: enum
-    default: "option1,option2,option3"
+    type: select
+    default: "option1"
+    validate:
+      options: ["option1", "option2", "option3"]
     help: "Test option enum"
