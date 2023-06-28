@@ -1,5 +1,5 @@
 version: v0.1.0
-node_version: v2.0.0
+node_version: v2.0.3
 name: python-mock-server
 upgrade: recommended
 # TODO: add hardware requirements
