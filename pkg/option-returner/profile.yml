@@ -1,3 +1,8 @@
+monitoring:
+  targets:
+    - service: "main-service"
+      port: 8080
+      path: "/metrics"
 options:
   - name: "main-container-name"
     target: MAIN_SERVICE_NAME
