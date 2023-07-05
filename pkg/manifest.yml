@@ -3,7 +3,8 @@ node_version: v2.1.0
 name: python-mock-server
 upgrade: recommended
 # TODO: add hardware requirements
-# TODO: add plugin
+plugin:
+  - git: https://github.com/NethermindEth/mock-avs.git#main:plugin
 profiles:
   - name: option-returner
   - name: health-checker
