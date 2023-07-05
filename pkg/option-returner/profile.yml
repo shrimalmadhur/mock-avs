@@ -44,7 +44,7 @@ options:
     help: "Test option bool"
   - name: "test-option-path-dir"
     target: TEST_OPTION_PATH_DIR
-    type: path_file
+    type: path_dir
     default: "/tmp"
     help: "Test option path dir"
   - name: "test-option-path-file"
