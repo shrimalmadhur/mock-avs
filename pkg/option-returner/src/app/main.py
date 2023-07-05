@@ -167,6 +167,18 @@ class BackgroundTasks(threading.Thread):
                 client="nethermind",
                 version="1.19.0"
             ).inc(1)
+            EIGEN_RPC_REQUEST_DURATION_SECONDS.labels(
+                avs_name="mock-avs",
+                method="eth_call",
+                client="nethermind",
+                version="1.19.0"
+            ).observe(random.random()*0.5)
+            EIGEN_RPC_REQUEST_TOTAL.labels(
+                avs_name="mock-avs",
+                method="eth_call",
+                client="nethermind",
+                version="1.19.0"
+            ).inc(1)
             time.sleep(5)
 
 
