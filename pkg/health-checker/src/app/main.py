@@ -4,6 +4,7 @@ from prometheus_client import make_asgi_app, Counter, Gauge, Histogram
 import threading
 import random
 import os
+import requests
 
 
 version = os.getenv("VERSION", "v3.0.0")
@@ -52,14 +53,14 @@ app.mount("/metrics", make_asgi_app())
 # ***** Prometheus metrics *****
 
 
-@app.get("/option/{option_target}")
-def get_option(option_target: str):
-    # Get option from env
-    option = os.getenv(option_target)
-    if not option:
-        raise HTTPException(status_code=404, detail="Option target not found")
-    return {"option_value": option}
-
+@app.get("/check/{avs_target}")
+def get_option(avs_target: str):
+    # Make request to AVS health check endpoint
+    # If AVS is up, return 200
+    # If AVS is down, raise 503
+    # If AVS is up but not ready, return 206
+    resp = requests.get(f"http://{avs_target}/eigen/node/health")
+    return Response(content=resp.content, status_code=resp.status_code)
 
 @app.post("/health/{status_code}")
 def update_health(status_code: int):
@@ -169,13 +170,13 @@ class BackgroundTasks(threading.Thread):
             ).inc(1)
             EIGEN_RPC_REQUEST_DURATION_SECONDS.labels(
                 avs_name="mock-avs",
-                method="eth_call",
+                method="eth_getBalance",
                 client="nethermind",
                 version="1.19.0"
             ).observe(random.random()*0.5)
             EIGEN_RPC_REQUEST_TOTAL.labels(
                 avs_name="mock-avs",
-                method="eth_call",
+                method="eth_getBalance",
                 client="nethermind",
                 version="1.19.0"
             ).inc(1)

@@ -1,0 +1,23 @@
+monitoring:
+  targets:
+    - service: "health-checker"
+      port: 8090
+      path: "/metrics"
+options:
+  - name: "main-container-name"
+    target: MAIN_SERVICE_NAME
+    type: id
+    default: "health-checker"
+    help: "Main service container name"
+  - name: "main-port"
+    target: MAIN_PORT
+    type: port
+    default: 8090
+    help: "Main service server port"
+  - name: "network-name"
+    target: NETWORK_NAME
+    type: str
+    validate:
+      re2_regex: "^eigen.*" # Words that start with eigen
+    default: eigenlayer
+    help: "Docker network name"

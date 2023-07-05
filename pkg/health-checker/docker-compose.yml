@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  main-service:
+    container_name: ${MAIN_SERVICE_NAME}
+    build:
+      context: ./src
+    command:
+      - uvicorn
+      - app.main:app
+      - --host=0.0.0.0
+      - --port=8090
+    ports:
+      - "${MAIN_PORT}:8090"
+    networks:
+      - eigenlayer
+    environment:
+      - MAIN_SERVICE_NAME=${MAIN_SERVICE_NAME}
+      - MAIN_PORT=${MAIN_PORT}
+      - NETWORK_NAME=${NETWORK_NAME}
+networks:
+  eigenlayer:
+    name: ${NETWORK_NAME}
