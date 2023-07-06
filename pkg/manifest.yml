@@ -4,7 +4,7 @@ name: python-mock-server
 upgrade: recommended
 # TODO: add hardware requirements
 plugin:
-  - git: https://github.com/NethermindEth/mock-avs.git#main:plugin
+  build_from: https://github.com/NethermindEth/mock-avs.git#main:plugin
 profiles:
   - name: option-returner
   - name: health-checker
