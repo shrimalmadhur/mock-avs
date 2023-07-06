@@ -1,6 +1,6 @@
 # AVS Mock Plugin
 
-The plugin receives a `host` and a `port` arguments. Makes a GET request to the `/eigen/node/health` endpoint of the AVS instance running at `http://<host>:<port>`. The plugin should run in the same docker image as the AVS instance and using the docker-compose service name for `host` is preferred.
+The plugin receives a `host` and a `port` arguments. Makes a GET request to the `/eigen/node/health` endpoint of the AVS instance running at `http://<host>:<port>`. The plugin should run in the same docker network as the AVS instance and using the docker-compose service name for `host` is preferred.
 
 ## Default values
 
