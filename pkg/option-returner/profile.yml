@@ -52,7 +52,7 @@ options:
     type: path_file
     default: "/tmp/test.txt"
     validate:
-      format: ".txt"
+      format: "txt"
     help: "Test option path file"
   - name: "test-option-uri"
     target: TEST_OPTION_URI
